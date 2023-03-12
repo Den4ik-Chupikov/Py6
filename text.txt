@@ -5,9 +5,3 @@ stroka 4
 Stroka 5
 Stroka 6
 Stroka 7
-<<<<<<< HEAD
-zbc
-
-=======
-Stroka  8
->>>>>>> 7733bc45f22d5e7fb9eff2a5d0fb95b7771af0b9
