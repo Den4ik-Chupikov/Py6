@@ -1,7 +1,0 @@
-stroka 1
-stroka 2
-stroka 3
-stroka 4
-Stroka 5
-Stroka 6
-Stroka 7
