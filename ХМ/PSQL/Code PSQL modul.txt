@@ -13,7 +13,7 @@ modul=# select * from people;
   4 | Helen  | Smith    | hell@gmail.com   | f
   5 | Jenny  | Visit    | eachup@gmail.com | f
   6 | Lora   | Shabolda | tpicks@gmail.com | f
-(6 строк)
+(6 Г±ГІГ°Г®ГЄ)
 
 modul=# select concat('This is',' ', name,', ', case when gender = 'm' then 'he' else 'she' end,' has email ',email) info from people;
 
@@ -25,7 +25,7 @@ modul=# select concat('This is',' ', name,', ', case when gender = 'm' then 'he'
  This is Helen, she has email hell@gmail.com
  This is Jenny, she has email eachup@gmail.com
  This is Lora, she has email tpicks@gmail.com
-(6 строк)
+(6 Г±ГІГ°Г®ГЄ)
 
 modul=# create table word (id serial, word varchar(255), vocabulary_id integer);
 CREATE TABLE
@@ -118,4 +118,12 @@ modul=# select name,count(*) from vocabulary,word where (vocabulary.id = word.vo
  nature  |    10
  school  |    10
  SF      |    10
-(5 строк)
+(5 Г±ГІГ°Г®ГЄ)
+
+modul=# select concat ('We have a',' ', count(*),' ', case when gender = 'm' then 'boys!' else 'Gils!' end) info from people group by gender;
+
+       info
+-------------------
+ We have a 3 boys!
+ We have a 3 Gils!
+(2 СЃС‚СЂРѕРєРё)
