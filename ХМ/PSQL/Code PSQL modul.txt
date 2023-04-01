@@ -1,0 +1,121 @@
+modul=# create table people (id serial,name varchar(20),pwd varchar(20), email varchar(20), gender varchar(20));
+CREATE TABLE
+
+modul=# insert into people(name,pwd,email,gender) values ('Vasya','Petrov','mmm@mmail.com','m'),('Alex','Pypkin','mmm@gmail.com','m'),('Alexey','Vetrov','alexey@gmail.com', 'm'),('Helen','Smith','hell@gmail.com','f'),('Jenny','Visit','eachup@gmail.com','f'),('Lora','Shabolda','tpicks@gmail.com','f');
+INSERT 0 6
+
+modul=# select * from people;
+ id |  name  |   pwd    |      email       | gender
+----+--------+----------+------------------+--------
+  1 | Vasya  | Petrov   | mmm@mmail.com    | m
+  2 | Alex   | Pypkin   | mmm@gmail.com    | m
+  3 | Alexey | Vetrov   | alexey@gmail.com | m
+  4 | Helen  | Smith    | hell@gmail.com   | f
+  5 | Jenny  | Visit    | eachup@gmail.com | f
+  6 | Lora   | Shabolda | tpicks@gmail.com | f
+(6 строк)
+
+modul=# select concat('This is',' ', name,', ', case when gender = 'm' then 'he' else 'she' end,' has email ',email) info from people;
+
+                     info
+-----------------------------------------------
+ This is Vasya, he has email mmm@mmail.com
+ This is Alex, he has email mmm@gmail.com
+ This is Alexey, he has email alexey@gmail.com
+ This is Helen, she has email hell@gmail.com
+ This is Jenny, she has email eachup@gmail.com
+ This is Lora, she has email tpicks@gmail.com
+(6 строк)
+
+modul=# create table word (id serial, word varchar(255), vocabulary_id integer);
+CREATE TABLE
+modul=# create table vocabulary (id serial, name varchar(255), info text);
+CREATE TABLE
+modul=# INSERT INTO vocabulary
+modul-# (name)
+modul-# VALUES
+modul-# ('animals'),
+modul-# ('school'),
+modul-# ('nature'),
+modul-# ('human'),
+modul-# ('SF');
+INSERT 0 5
+modul=# INSERT INTO word
+modul-# (word, vocabulary_id)
+modul-# VALUES
+modul-# ('turtle', 1),
+modul-# ('pig', 1),
+modul-# ('dog', 1),
+modul-# ('cat', 1),
+modul-# ('lizard', 1),
+modul-# ('cow', 1),
+modul-# ('rabbit', 1),
+modul-# ('frog', 1),
+modul-# ('headgehog', 1),
+modul-# ('goat', 1);
+INSERT 0 10
+modul=#INSERT INTO word
+modul=#(word, vocabulary_id)
+modul=#VALUES
+modul=#('desk', 2),
+modul=#('book', 2),
+modul=#('chalk', 2),
+modul=#('pen', 2),
+modul=#('pencil', 2),
+modul=#('copybook', 2),
+modul=#('lesson', 2),
+modul=#('teacher', 2),
+modul=#('pupils', 2),
+modul=#('school', 2);
+modul=# INSERT INTO word
+modul-# (word, vocabulary_id)
+modul-# VALUES
+modul-# ('ray', 3),
+modul-# ('thunder', 3),
+modul-# ('sun', 3),
+modul-# ('field', 3),
+modul-# ('hill', 3),
+modul-# ('mountain', 3),
+modul-# ('river', 3),
+modul-# ('forest', 3),
+modul-# ('grass', 3),
+modul-# ('rain', 3);
+INSERT 0 10
+modul=# INSERT INTO word
+modul-# (word, vocabulary_id)
+modul-# VALUES
+modul-# ('hair', 4),
+modul-# ('nail', 4),
+modul-# ('finger', 4),
+modul-# ('eye', 4),
+modul-# ('tooth', 4),
+modul-# ('knee', 4),
+modul-# ('elbow', 4),
+modul-# ('leg', 4),
+modul-# ('arm', 4),
+modul-# ('head', 4);
+INSERT 0 10
+modul=# INSERT INTO word
+modul-# (word, vocabulary_id)
+modul-# VALUES
+modul-# ('engine', 5),
+modul-# ('steel', 5),
+modul-# ('power', 5),
+modul-# ('nuclear', 5),
+modul-# ('shotgun', 5),
+modul-# ('laser', 5),
+modul-# ('flight', 5),
+modul-# ('energy', 5),
+modul-# ('Moon', 5),
+modul-# ('splace', 5);
+INSERT 0 10
+
+modul=# select name,count(*) from vocabulary,word where (vocabulary.id = word.vocabulary_id)  group by name order by name asc;
+  name   | count
+---------+-------
+ animals |    10
+ human   |    10
+ nature  |    10
+ school  |    10
+ SF      |    10
+(5 строк)
